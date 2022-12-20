@@ -20,7 +20,7 @@
 \usepackage{fancyhdr}
 \title{Set Theory Lecture Note}
 \author{TaeYoung Rhee}
-\date{October 2022}
+\date{Winter 2022}
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[]
 \newtheorem{thm}{Theorem}[]
@@ -39,5 +39,66 @@
 
 \maketitle
 
-
+\section{ZFC}
+Actually, there exists a 0th axiom.
+\begin{align*}
+    \exists x (x = x )
+\end{align*}
+It means there `is something'.
+\begin{enumerate}
+    \item Extensionality
+    \begin{align*}
+        \forall x \forall y ( \forall z ( z \in x \leftrightarrow z \in y)
+        \rightarrow x = y) \\ 
+        A \subseteq B , B \subseteq A \rightarrow A = b
+    \end{align*}
+    \item Foundation / Regularity
+    \begin{align*}
+        \forall x ( \exists y ( y \in x) \rightarrow \exists y ( y \in x \wedge \neg \exists z
+        (z \in x \wedge z \in y)))
+    \end{align*}
+    \item Seperation Schema \\ 
+    For each $\phi$ with free variables among $x, z, w_1, \cdots, w_n$
+    \begin{align*}
+        \forall w_1, \cdots, \forall w_n \forall x \exists y \forall z
+        (z \in y \leftrightarrow z \in x \wedge \phi(x, z, w_1, \cdots, w_n) )
+    \end{align*}
+    \item Pairing
+    \begin{align*}
+        \forall x \forall y \exists z ( x \in z \wedge y \in z)
+    \end{align*}
+    \item Union
+    \begin{align*}
+        \forall x \exists y \forall z \forall w ((z \in w \wedge w \in x) \rightarrow z \in y)
+    \end{align*}
+    \begin{align*}
+        \bigcup x = \cup_{w\in x} w
+    \end{align*}
+    \item Replacement scheme \\ 
+    For each $\phi$ whose free variables among $x, z, w_1, \cdots, w_n$
+    \begin{align*}
+        \forall w_1 \cdots \forall w_n \forall x  \forall z(
+            (z \in x \rightarrow \exists ! y \phi ) \rightarrow 
+            \exists u (\forall z \exists y ( z \in x \rightarrow y \in u \wedge \phi))
+        ) 
+    \end{align*}
+    \item Infinity
+    \begin{align*}
+        \exists x ( 0 \in x \wedge \forall y (y \in x \rightarrow S(y) \in x))
+    \end{align*}
+    \item Power set
+    \begin{align*}
+        \forall x \exists y \forall z  ( z \subseteq x \rightarrow z \in y)
+    \end{align*}
+    \item Choice 
+    \begin{align*}
+        \forall X \exists R (R \text{ well orders } X) 
+    \end{align*}
+    The following statments are equivalent to axiom of choice
+    \begin{itemize}
+        \item Every commutative ring with  $1$ has a maximal ideal.
+        \item Every vector space over a field has a basis.
+        \item Tychonoff's theorem
+    \end{itemize}
+\end{enumerate}
 \end{document}
